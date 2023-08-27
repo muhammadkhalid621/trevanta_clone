@@ -1,13 +1,139 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+@import url("https://fonts.googleapis.com/css?family=Catamaran:300,400|Kaushan+Script&display=swap");
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.ReactModal__Overlay {
+  transition: transform 300ms ease-in-out;
+  transition-delay: 100ms;
+  transform: scale(0);
+}
+.ReactModal__Overlay--after-open{
+  transform: scale(1);
+}
+.ReactModal__Overlay--before-close{
+  transform: scale(0);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@layer base {
+
+  *,
+  ::after,
+  ::before {
+    @apply: m-0 p-0 box-content
+  }
+
+  body {
+    @apply: font-sans bg-main-clr-dark-second text-sm leading-6 md:text-base
+  }
+
+  ul {
+    @apply: list-none
+  }
+
+  a {
+    @apply: no-underline
+  }
+
+  hr {
+    @apply: border-none border-t border-clr_grey_8
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply: tracking-mainSpacing capitalize leading-5 mb-3
+  }
+
+  h1 {
+    @apply: text-5xl md:text-6xl
+  }
+
+  h2 {
+    @apply: text-4xl md:text-5xl
+  }
+
+  h3 {
+    @apply: text-2xl md:text-3xl
+  }
+
+  h4 {
+    @apply: text-xl md:text-2xl
+  }
+
+  h5 {
+    @apply: text-sm md:text-base
+  }
+
+  p {
+    @apply: mb-5 text-clr_grey_3
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply: md:leading-4
+  }
+
+}
+
+@layer components {
+
+  .section {
+    @apply: py-20 px-0
+  }
+
+  .section-center {
+    @apply: w-smallWidth my-0 mx-auto max-w-fullWidth md:w-medWidth
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loading {
+    @apply: w-24 h-24 my-0 mx-auto rounded-full mt-40 border-4 border-gray-400 border-t-clr_primary_5 animate-spin
+  }
+
+  .btn {
+    @apply: uppercase bg-clr_primary_5 text-clr_primary_10 py-0.375 mx-3 tracking-mainSpacing inline-block font-normal transition-all ease-linear duration-300
+    text-sm cursor-pointer shadow rounded border-transparent hover:text-clr_primary_1 hover:bg-clr_primary_7
+  }
+
+  .title {
+    @apply: text-center
+  }
+
+  .title .underline {
+    @apply: w-24 h-1 bg-clr_primary_5 mx-auto
+  }
+
+  .page-100 {
+    min-height: calc(100vh - 10rem);
+    padding: 5rem 0;
+  }
+  .page {
+    min-height: calc(100vh - (20vh + 10rem));
+  }
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+
 }
